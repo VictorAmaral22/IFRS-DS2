@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('includes/head') %>
+
+<body>
+
+    <nav>
+        <ul>
+            <li>Games</li>
+            <li>Cadastro</li>
+            <li>Contato</li>
+        </ul>
+    </nav>
+    <h1><%= game.nome %></h1>
+    <h2>Desenvolvido por <%= game.developer %></h2>
+    <h3>Lançado em: <%= game.lancamento %></h3>
+
+    <a href="admin/deletarGame/<%= game.id %>">Deletar Game</a>
+    
+
+</body>
+</html>
