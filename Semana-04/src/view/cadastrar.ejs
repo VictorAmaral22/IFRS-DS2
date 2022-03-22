@@ -1,18 +1,12 @@
 <!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Filmologia</title>
-</head>
+<html lang="en">
+
+<%- include('includes/head') %>
+
 <body>
-    <!--
-        NOME
-        GENERO
-        SINOPSE
-        DATA-LANCAMENTO
-    -->
+
+    <%- include('includes/navbar') %>
+
     <h1>Cadastro filmes</h1>
 
     <form action="/filmes" method="POST">
@@ -40,5 +34,6 @@
     <footer>
         <p>Desenvolvido nas aulas do IFRS <3</p>
     </footer>
+
 </body>
 </html>

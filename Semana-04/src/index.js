@@ -1,45 +1,45 @@
+
 const express = require('express');
 const app = express();
-const port = 3000;
 
 app.set('view engine', 'ejs');
-app.set('views', './src/views');
+app.set('views', './src/view');
 
+// PARSER DOS FORMULÁRIOS
 app.use(express.urlencoded({
     extended: true
 }));
 
+// PARSER DAS REQUISIÇOES COM JSON
 app.use(express.json());
 
-/* Sempre que utilizamos app.use estamos incluindo um Middleware 
+app.use(express.static('public'));
 
-    Ele é uma função que executa entre o request e o endpoint final, permitinda que seja verificado, incluido, testado, etc... qualquer codigo, antes de "passar pra frente"
-    next() function
+/* 
+SEMPRE QUE UTILIZAMOS APP.USE ESTAMOS INCLUINDO UM MIDDLEWARE !!!
+
+MIDDLEWARE É UMA FUNÇÃO QUE EXECUTA ENTRE O REQUEST E O ENDPOINT FINAL, PERMITINDO QUE SEJA VERIFICADO, INCLUIDO, TESTADO, QUALQUER CÓDIGO, ANTES DE "PASSAR PARA FRENTE" NEXT() FUNCTION
 */
-
 app.use('*', (req, res, next) => {
-    console.log(`Request recebido para ${req.path} as ${new Date()}`);
+    console.log(`Request recebido para ${req.baseUrl} as ${new Date()}`);
+
+    // atrasando o usuario kkkkk
     // setTimeout(() => next(), 1000);
     next();
-});
-
-app.listen(port, () => {
-    console.log(`Server funcionando!\nRodando na porta http://localhost:${port} ...`);
-});
-
-app.use(express.static('public'));
+})
 
 app.get('/', (req, res) => {
     res.redirect('/filmes');
 });
 
-const filmesRoutes = require('./routes/FilmesRoutes');
+const filmesRoutes = require('./routes/filmes-routes');
 app.use('/filmes', filmesRoutes);
 
 app.use('*', (req, res) => {
-    return res.send(`
-        <h1>Error 404</h1>
-        <h3>Sorry, no found</h3>
-        <a href="/filmes">Voltar</a>
+    return res.status(404).send(`
+        <h1>Sorry, not found!!!</h1>
+        <a href="/filmes">VOLTAR</a>
     `);
-});
+})
+
+app.listen(3000, () => console.log('Server iniciado na porta 3000'));
