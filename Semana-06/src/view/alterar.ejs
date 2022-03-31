@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<%- include('includes/head') %>
+
+<body>
+
+    <%- include('includes/navbar') %>    
+
+    <h1>Filme <%= filme.nome %></h1>
+
+    <form action="/filmes/alterar/<%= filme.id %>" method="POST">
+        <label for="nome">Nome</label>
+        <input type="text" name="nome" value="<%= filme.nome %>">
+        <br /><br />
+
+        <label for="genero">Gênero</label>
+        <input type="text" name="genero" value="<%= filme.genero %>">
+        <br /><br />
+
+        <label for="sinopse">Sinopse</label>
+        <input type="text" name="sinopse" value="<%= filme.sinopse %>">
+        <br /><br />
+        
+        <label for="lancamento">Lançado em</label>
+        <input type="date" name="data_lancamento" value="<%= filme.data_lancamento.toISOString().split('T')[0] %>">
+        <br /><br />
+
+        <input type="submit" value="Alterar">
+        <br /><br />        
+    </form>
+
+<!-- 
+    <a href="/filmes/alterar/<%= filme.id %>">ALTERAR</a>
+    <br/><br/>
+    <a href="/filmes/deletar/<%= filme.id %>">DELETAR</a> -->
+</body>
+</html>
