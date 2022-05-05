@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        main {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .element {
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid black;
+            border-radius: 4px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .photo {
+            width: 25vw;
+            height: 40vh;
+            align-self: center;
+        }
+
+        .form {
+            height: 20vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: flex-start;
+        }
+
+        .paginationContainer {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            justify-self: center;
+            align-self: center;
+            width: 100%;            
+        }
+        .pagination {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            justify-self: center;
+            align-self: center;
+            width: 30%;
+        }
+        .pagination a {
+            text-decoration: none;
+            background-color: darkkhaki;
+            border-radius: 10px;
+            padding: 5px;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>Enviar imagem</h1>
+    <form method="post" action="/" enctype="multipart/form-data" class="form">
+        <label for="title">Título</label>
+        <input type="text" name="title">
+        <label for="description">Descrição</label>
+        <input type="text" name="description">
+        <input type="file" name="image">
+        <input type="submit" value="Enviar">
+    </form>
+
+    <h1>Minha Galeria <%= page %> / <%= Math.ceil(total/5) %></h1>
+    <main>    
+        <% images.map(item => {  %>
+            <div class="element">
+                <div>
+                    <h3><%- item.title %></h3>
+                    <h4><%- item.description %></h4>
+                </div>
+                <img class="photo" src="<%- item.url %>" alt="">
+            </div>
+        <% }) %>
+    </main>
+    <div class="paginationContainer">
+        <div class="pagination">
+            <% for(let i = 1; i <= Math.ceil(total/5); i++) { %>
+                <a href="/?page=<%= i %>"><%= i %></a>
+            <% } %>
+        </div>
+    </div>
+
+</body>
+</html>
