@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Filmes</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/css/films.css">
+</head>
+<body>
+    <div>
+        <% films.results.map(film => { %>
+            <div class="film-card">
+                <p>Episode <%- film.episode_id %> - <%- film.title %></p>
+                <p><%- film.release_date %></p>
+                <p>Directed by: <%- film.director %></p>
+                <h3>Characters</h3>
+                <ul>
+                    <% console.log(film.characters) %>
+                    <% film.characters.map(char => { %>
+                        <li><a href="#">Aaaaaaa<%- char.name %></a></li>
+                    <% }) %>
+                </ul>
+            </div>
+        <% }) %>
+    </div>
+</body>
+</html>
