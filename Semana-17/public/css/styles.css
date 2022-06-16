@@ -1,38 +1,59 @@
-body {
-    background-color: #000;
+.container {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
+}
+
+.cover {
+    width: 40%;
 }
 
 .title {
-    color: yellow;
-
+    font-size: 2em;
 }
 
-.main {
-    display: flex;
-    width: 70%;
-    height: 15vh;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-between;   
+.subtitle {
+    font-size: 1em;
 }
 
-.cards {
-    background-color: yellow;
+.form {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 10vw;
-    height: 15vh;
-    border-radius: 10px;
-    cursor: pointer;
+    justify-content: space-between;
+    width: 15%;
 }
 
-.cards img {
-    width: 5vw;
-    height: 5vw;
+.input {
+    border-radius: 5px;
+    height: 2vh;
+    margin-bottom: 5%;
+    border-width: 1px;
+    padding: 5px;
+}
+
+.button {
+    border-radius: 5px;
+    /* height: 3vh; */
+    border: transparent;
+    background-color: brown;
+    color: #fff;
+    width: 15vw;
+    padding-top: 1vh;
+    padding-bottom: 1vh;
+    align-items: center;
+    text-align: center;
+}
+
+.button a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.dog-photo {
+    width: 17vw;
+    height: 30vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
 }
