@@ -5,10 +5,10 @@
 
 <body>
 
-    <%- include('includes/navbar') %>
+    <%- include('includes/navbar') %>    
 
-    <% if(user) { %>
-      <h1>Bem vindo(a) <%- user.nome %></h1>
+    <% if (user) { %>
+      <h1>Bem vind@ <%= user.nome %></h1>
     <% } %>
 
     <h1>Lista de todos os filmes</h1>
