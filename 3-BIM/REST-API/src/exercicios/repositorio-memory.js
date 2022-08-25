@@ -1,20 +1,27 @@
 const exercicios = [];
 
 class ExerciciosRepository {
-    save(ex){
+    constructor() {
+
+    }
+
+    save(ex) {
         exercicios.push(ex);
     }
-    random(){
-        let randomIndx = Math.floor(Math.random()*exercicios.length);
-        return exercicios[randomIndx];
+
+    random() {
+        let randomIdx = Math.floor( Math.random()*exercicios.length);
+        return exercicios[randomIdx];
     }
-    list(disciplina){
-        let exc = exercicios.filter(exc => exc.disciplina == disciplina);
-        return exc;
+
+    detail(id) {
+        const ex = exercicios.find(e => e.id == id);
+        return ex;
     }
-    detail(id){
-        let exc = exercicios.find(exc => exc.id == id);
-        return exc;
+
+    list(disciplina) {
+        const lista = exercicios.filter(e => e.disciplina == disciplina);
+        return lista;
     }
 }
 
